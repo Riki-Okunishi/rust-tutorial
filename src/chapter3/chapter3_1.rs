@@ -2,10 +2,9 @@
 // see https://doc.rust-jp.rs/book-ja/ch03-01-variables-and-mutability.html
 
 pub fn chapter3_1() {
-    println!("\n*** Chapter3-1 ***");
+    /* 3.1 変数と可変性 */
 
-    /* 変数と可変性　*/
-    // (1-a) 不変な値
+    // (1) 不変な値
     let x = 5; // immutable で宣言し初期化．
     println!("変数 x を immutable で宣言し同時に代入：x = {}", x); // 不変な値は参照できる．
     // x = 10; // immutable な変数には1度しか代入はできない．
@@ -56,4 +55,5 @@ pub fn chapter3_1() {
     println!("mutable 変数 s としてシャドーイング後：s ={}, &s = {:p}", s, &s); // mutable への変更も可能．メモリの再割当ても同様．
     s.push_str(", world!"); // mutable なので変更可能．
     println!("mutable 変数 s として変更後：s = {}, &s = {:p}", s, &s);
+    
 }
