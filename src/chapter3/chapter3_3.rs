@@ -13,7 +13,7 @@ fn one_function() {
     another_function(5);
 }
 
-// 引数は「仮引数: 型」の形．型は宣言しなければならないようになっている．
+// 引数は「仮引数: 型」の形．型は宣言しなければならないようになっている．Python の型ヒントと同じ．
 fn another_function(x: i32) {
     println!("The value of x is {}.", x);
 }
@@ -26,8 +26,8 @@ fn what_is_function() {
     // let x = (let y = 6); // 文は値を返さないので，これはコンパイルエラー．C言語系統のようなことはできない．
     // let x = y = 8; // なのでこれもダメ．
     let z = 5 + 6; // 「5 + 6」は式．
-    another_function(4); // 関数呼び出しは式．
-    println!("It is equation."); // マクロ呼び出しも式．
+    another_function(z); // 関数呼び出しは式．
+    println!("Calling macro is equation."); // マクロ呼び出しも式．
     let y = {
         let x = 6; // ココは文だが，
         x + 5 // ココが式なので，ブロックが式を返し，全体として式．
@@ -35,12 +35,12 @@ fn what_is_function() {
 
 }
 
-// 関数の戻り値は '->' に続いて型を明記する．
+// 関数の戻り値は '->' に続いて型を明記する．Python の型ヒントと同じ．
 fn five() -> i32 {
     5
 }
 
-// 関数の戻り値を宣言されていないとコンパイルエラー．
+// 関数が戻り値を返すにも関わらず戻り値の型が宣言されていないとコンパイルエラー．
 /*fn one() {
     1
 }*/

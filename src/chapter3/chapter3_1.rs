@@ -34,6 +34,7 @@ pub fn chapter3_1() {
     // const MAX_HP: i32 = 200; // 2回以上宣言できない．
     // AUTHOR = "Okunishi"; // const に対する代入は構文としてそもそも成立しない．
     println!("定数も参照は他の変数と一緒：MAX_HP = {}, AUTHOR = {}", MAX_HP, AUTHOR);
+    // const mut MAX_ATK: i32 = 1500; // もちろん const は mutable にはできない
 
     /* シャドーイング */
     // (1) 基本型のシャドーイング

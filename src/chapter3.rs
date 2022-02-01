@@ -2,6 +2,7 @@
 mod chapter3_1;
 mod chapter3_2;
 mod chapter3_3;
+mod chapter3_5;
 
 pub fn chapter3() {
 
@@ -15,4 +16,7 @@ pub fn chapter3() {
 
     println!("\n*** Chapter3.3 ***");
     chapter3_3::chapter3_3();
+
+    println!("\n*** Chapter3.5 ***");
+    chapter3_5::chapter3_5();
 }
