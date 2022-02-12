@@ -1,9 +1,10 @@
 mod chapter3;
+mod chapter4;
 
 fn main() {
     println!("What chapter do you want to test?");
 
-    const LATEST_CHAPTER: i32 = 3;
+    const LATEST_CHAPTER: i32 = 4;
 
     let mut chapter: i32 = LATEST_CHAPTER;
     loop {
@@ -29,6 +30,7 @@ fn main() {
 
     match chapter {
         3 => chapter3::chapter3(),
+        4 => chapter4::chapter4(),
         _ => {
             println!("Not found chapter {}", chapter);
         }
