@@ -5,6 +5,7 @@ pub fn chapter4_1() {
     move_of_const();
     move_of_heap();
     clone_heap();
+    move_scope();
 }
 
 fn scope_literal() {
@@ -41,7 +42,28 @@ fn clone_heap() {
     {
         let s1 = String::from("hello");
         println!("s1 = '{}', address of s1 = {:p}", s1, &s1);
-        let s2 = s1.clone(); // Stringならclone メソッドならDeep Copyが可能
+        let s2 = s1.clone(); // Stringならclone メソッドでDeep Copyが可能
         println!("s1 = '{}', address of s1 = {:p}, s2 = '{}', address of s2 = {:p}", s1, &s1, s2, &s2); // Deep Copyなら両方の変数が所有権を持ったまま複製される．
     }
 }
+
+fn move_scope(){
+    let s = String::from("hello");  // sがスコープに入る
+
+    takes_ownership(s);             // sの値が関数にムーブされ...
+    //println!("s = {}", s);        // ... ここではもう有効ではない
+
+    let x = 5;                      // xがスコープに入る
+
+    makes_copy(x);                  // xも関数にムーブされるが，
+    println!("x = {}", x);          // i32はCopyなので，この後にxを使っても大丈夫
+
+} // ここでxがスコープを抜け，sもスコープを抜ける．ただし，sの値はムーブされているので，何も特別なことは起こらない
+
+fn takes_ownership(some_string: String) { // some_stringがスコープに入る
+    println!("{}", some_string);
+} // ここでsome_stringがスコープを抜け，`drop`が呼ばれる．後ろ盾していたメモリが解放される
+
+fn makes_copy(some_integer: i32) { // some_integerがスコープに入る
+    println!("{}", some_integer);
+} // ここでsome_integerがスコープを抜ける．何も特別なことはない

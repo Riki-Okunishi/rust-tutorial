@@ -11,7 +11,7 @@ fn main() {
         let input = get_input();
         chapter = match input.parse() {
             Ok(i) => {
-                println!("Your select is Chapter {}", i);
+                println!("Your select is Chapter {}\n", i);
                 i
             },
             Err(_) => {
