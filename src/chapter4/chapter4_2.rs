@@ -42,17 +42,17 @@ fn make_references() {
     // 2. 不変参照と 可変参照の両方が同一スコープに存在する
     let mut s = String::from("hello");
     {
-        let r1 = &mut s; // 可変参照型を変数に格納
+        let _r1 = &mut s; // 可変参照型を変数に格納
         // let r2 = &mut s; // 同一変数に対する 2つ目の可変参照は作れない
         // println!("{}, {}", r1, r2); // 両方の 可変参照を使用するとコンパイルエラー
     }
-    let r2 = &mut s; // 別のスコープであれば，同一変数の 可変参照を2つ作れる(同一スコープには1つしかない)
+    let _r2 = &mut s; // 別のスコープであれば，同一変数の 可変参照を2つ作れる(同一スコープには1つしかない)
     
     {
         // let r5 = &mut s; // このローカルスコープでも r2 が有効なので，2つ以上 可変参照が存在するため作成不可
         // println!("{}, {}", r2, r5); // ここはコンパイルエラー
-        let r3 = &s;
-        let r4 = &s; // 同一変数の同一スコープ内での参照でも，不変参照なら複数作成可能．
+        let _r3 = &s;
+        let _r4 = &s; // 同一変数の同一スコープ内での参照でも，不変参照なら複数作成可能．
         // let r5 = &mut s; // 既に 不変参照が存在するときに 可変参照は作れない
         // println!("{}, {}, {}", r3, r4, r5); // ここはコンパイルエラー
     }
@@ -60,7 +60,7 @@ fn make_references() {
 
 fn dangling_pointer() {
     // let reference_to_nothing = dangle(); // スコープを抜け破棄された実体への参照は許さない
-    let referece_to_no_dangled = no_dangle();
+    let _referece_to_no_dangled = no_dangle();
 }
 
 // fn dangle() -> &String { // dangle は String への参照を返す

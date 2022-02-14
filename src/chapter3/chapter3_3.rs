@@ -22,13 +22,13 @@ fn another_function(x: i32) {
 // 文は，何らかの動作をして値を返さない．
 // 式は．結果値として評価される．
 fn what_is_function() {
-    let y = 6; // let文．文なので終端はセミコロン(;)
+    let _y = 6; // let文．文なので終端はセミコロン(;)
     // let x = (let y = 6); // 文は値を返さないので，これはコンパイルエラー．C言語系統のようなことはできない．
     // let x = y = 8; // なのでこれもダメ．
     let z = 5 + 6; // 「5 + 6」は式．
     another_function(z); // 関数呼び出しは式．
     println!("Calling macro is equation."); // マクロ呼び出しも式．
-    let y = {
+    let _y = {
         let x = 6; // ココは文だが，
         x + 5 // ココが式なので，ブロックが式を返し，全体として式．
     }; // 新しいスコープを作る {} も式．
@@ -36,7 +36,7 @@ fn what_is_function() {
 }
 
 // 関数の戻り値は '->' に続いて型を明記する．Python の型ヒントと同じ．
-fn five() -> i32 {
+fn _five() -> i32 {
     5
 }
 
@@ -45,6 +45,6 @@ fn five() -> i32 {
     1
 }*/
 
-fn ten() -> i32 {
+fn _ten() -> i32 {
     return 10 // return を使えば明示的．文末にセミコロンをつけてもOK．
 }

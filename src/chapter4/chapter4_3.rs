@@ -6,14 +6,17 @@ pub fn chapter4_3() {
 fn use_slice() {
     let mut s = String::from("hello, world");
     
-    let hello = &s[..5]; // `&s[0..5]` と等価
-    let world = &s[6..]; // `s[6..11]` と等価
+    let _hello = &s[..5]; // `&s[0..5]` と等価
+    let _world = &s[6..]; // `s[6..11]` と等価
 
     let word = first_word(&s); // ここで得た変数 s の「最初の1単語」は，意味を失わない．不変借用を使うことで，以降は可変変数(変数 s)にも不変性が要求されるから．
     // s.clear(); // Chap. 4.2で扱った「同一スコープ内に可変参照と不変参照が共存できない」に反するためエラー．'cannot borrow `s` as mutable because it is also borrowed as immutable'でエラー
     println!("the first word is {}", word); // 不変な借用の結果得た値が，使用するまでに意味をなさなくなる可能性を排除できる
+    s.clear(); // 以降不変参照を使わないのであれば，借用された側の変数を変更しても問題ない
+    println!("s is cleared '{}'", s); // ここは不変参照 word を使わないのでエラーにならない
 
-    let s = "hello, world!"; // 文字列リレラルを格納する変数の型は，'&str'．つまり，バイナリの特定の位置を指すスライス str の，不変な参照 &str．
+
+    let s = "hello, world!"; // 文字列リテラルを格納する変数の型は，'&str'．つまり，バイナリの特定の位置を指すスライス str の，不変な参照 &str．
     let first = first_word_by_str(&s);
     println!("first word is {}", first);
 }
