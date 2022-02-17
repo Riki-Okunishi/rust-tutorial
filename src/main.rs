@@ -2,6 +2,7 @@ mod chapter3;
 mod chapter4;
 mod chapter5;
 mod chapter6;
+mod chapter8;
 
 fn main() {
     
@@ -35,6 +36,7 @@ fn main() {
         4 => chapter4::chapter4(),
         5 => chapter5::chapter5(),
         6 => chapter6::chapter6(),
+        8 => chapter8::chapter8(),
         _ => {
             println!("Not found chapter {}", chapter);
         }
