@@ -4,6 +4,7 @@ mod chapter5;
 mod chapter6;
 mod chapter8;
 mod chapter9;
+mod chapter10;
 
 pub struct Guess {
     pub value: u32,
@@ -25,8 +26,8 @@ impl Guess {
 }
 
 fn main() {
-    
-    const LATEST_CHAPTER: i32 = 6;
+
+    const LATEST_CHAPTER: i32 = 10;
     println!("What chapter do you want to test? (3 ~ {})", LATEST_CHAPTER);
 
     let mut chapter: i32 = LATEST_CHAPTER;
@@ -58,6 +59,7 @@ fn main() {
         6 => chapter6::chapter6(),
         8 => chapter8::chapter8(),
         9 => chapter9::chapter9(),
+        10 => chapter10::chapter10(),
         _ => {
             println!("Not found chapter {}", chapter);
         }
